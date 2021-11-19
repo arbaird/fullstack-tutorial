@@ -8,13 +8,28 @@ import {
 } from '../../test-utils';
 import Login, {LOGIN_USER} from '../login';
 import { cache, isLoggedInVar } from '../../cache';
+import { shallow, configure, mount, render  } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { MockedProvider } from '@apollo/client/testing';
+import { ApolloConsumer } from '@apollo/client';
+
+configure({ adapter: new Adapter() })
 
 describe('Login Page', () => {
   // automatically unmount and cleanup DOM after the test is finished.
   afterEach(cleanup);
 
   it('renders login page', async () => {
-    renderApollo(<Login />);
+  //  renderApollo(<Login />);
+  let wrapper = mount(<MockedProvider>
+    <ApolloConsumer>
+        {client => {
+            client.stop = jest.fn();
+            return <Login/>;
+        }}
+    </ApolloConsumer>
+  </MockedProvider>);
+  expect(wrapper.render())
   });
 
   it('fires login mutation and updates cache after done', async () => {
@@ -38,6 +53,14 @@ describe('Login Page', () => {
       mocks,
       cache,
     });
+    let wrapper = mount(<MockedProvider>
+      <ApolloConsumer>
+          {client => {
+              client.stop = jest.fn();
+              return <Login/>;
+          }}
+      </ApolloConsumer>
+    </MockedProvider>);
 
     fireEvent.change(getByTestId('login-input'), {
       target: {value: 'a@a.a'},
@@ -47,7 +70,6 @@ describe('Login Page', () => {
 
     // login is done if loader is gone
     await waitForElement(() => getByText(/log in/i));
-
     expect(isLoggedInVar()).toBeTruthy();
   });
 });

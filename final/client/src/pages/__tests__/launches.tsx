@@ -7,6 +7,12 @@ import {
   waitForElement,
 } from '../../test-utils';
 import Launches, { GET_LAUNCHES } from '../launches';
+import { shallow, configure, mount, render  } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { MockedProvider } from '@apollo/client/testing';
+import { ApolloConsumer } from '@apollo/client';
+
+configure({ adapter: new Adapter() })
 
 const mockLaunch = {
   __typename: 'Launch',
@@ -48,10 +54,19 @@ describe('Launches Page', () => {
         },
       },
     ];
-    const { getByText } = await renderApollo(<Launches />, {
+   const { getByText } = await renderApollo(<Launches />, {
       mocks,
       cache,
     });
-    await waitForElement(() => getByText(/test mission/i));
+    let wrapper = shallow(<MockedProvider mocks={mocks}>
+      <ApolloConsumer>
+          {client => {
+              client.stop = jest.fn();
+              return <Launches/>;
+            }}
+            </ApolloConsumer>
+          </MockedProvider>);
+    //await waitForElement(() => getByText(/test mission/i));
+    expect(wrapper.find({ "data-testid": "message" })).toBeTruthy();
   });
 });
