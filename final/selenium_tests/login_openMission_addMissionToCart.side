@@ -1,0 +1,148 @@
+{
+  "id": "0e737656-264b-40b8-a707-cf00c51fc61b",
+  "version": "2.0",
+  "name": "apollo_unit_tests",
+  "url": "http://localhost:3000",
+  "tests": [{
+    "id": "3ed6c198-20f9-4bca-bf91-340403ccf553",
+    "name": "login",
+    "commands": [{
+      "id": "09164b95-f7d6-4cf5-8c58-1b0c6af69d70",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b85d3d9c-5163-47a5-a614-bb77881c1cf0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1075x731",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a9cc911-1f89-4608-8858-1da7c7abed71",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.css-wotvke", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4504559d-14c2-4679-9859-133c188b32cd",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.css-wotvke", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "corbinbeebe@gmail.com"
+    }, {
+      "id": "154ee8f5-14dd-4328-bdfa-eb7886786a8a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.css-wwcn44",
+      "targets": [
+        ["css=.css-wwcn44", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div/form/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d42266f2-d3a2-4aac-bb6c-87b65463eecf",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "32e591ba-c0ff-4ba6-93fa-eea7750fb7f1",
+    "name": "open mission",
+    "commands": [{
+      "id": "90887893-25a9-48ba-b9a2-8523a7339457",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "faa4361b-f38f-449a-8922-9c7c2bf1f0f2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1072x723",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "77669981-c1d0-4aa4-907e-5a0466b940dc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.css-10q0vj5:nth-child(2)",
+      "targets": [
+        ["css=.css-10q0vj5:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/launch/109')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "17e4f4f9-db7d-4b26-b619-6bcbe3bb8ff2",
+    "name": "add_mission_to_cart",
+    "commands": [{
+      "id": "b3559042-00c8-4954-95d7-4d181df3b486",
+      "comment": "",
+      "command": "open",
+      "target": "/launch/109",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "79512008-f0a3-43db-a64a-d0b9324e3c4a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1075x731",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8c9f8b43-99ef-47f3-a8b4-c4e11efb6117",
+      "comment": "",
+      "command": "click",
+      "target": "css=.css-wwcn44",
+      "targets": [
+        ["css=.css-wwcn44", "css:finder"],
+        ["xpath=//div[@id='root']/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "88e773e6-b252-4eef-a5cd-e31d4b3243fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.css-1yu82wf:nth-child(2) > svg",
+      "targets": [
+        ["css=.css-1yu82wf:nth-child(2) > svg", "css:finder"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "5a3bfaef-8edb-4a3f-9fc5-0b47ac5ba122",
+    "name": "corbin_tests",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["3ed6c198-20f9-4bca-bf91-340403ccf553", "32e591ba-c0ff-4ba6-93fa-eea7750fb7f1", "17e4f4f9-db7d-4b26-b619-6bcbe3bb8ff2"]
+  }],
+  "urls": ["http://localhost:3000/"],
+  "plugins": []
+}
